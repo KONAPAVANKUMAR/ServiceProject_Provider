@@ -30,44 +30,95 @@ class _AddServicePageState extends State<AddServicePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Add Service')),
-        body: Column(
-          children: [
-            TextField(
-              controller: _serviceNameController,
-              decoration: InputDecoration(
-                hintText: 'Service Name',
+        appBar: AppBar(
+          title: Text(
+            'Add Service',
+            style: GoogleFonts.montserrat(
+              textStyle: TextStyle(
+                fontSize: 20,
               ),
             ),
-            TextField(
-              controller: _serviceDescriptionController,
-              decoration: InputDecoration(
-                hintText: 'Service Description',
+          ),
+          centerTitle: true,
+        ),
+        body: Container(
+          padding: EdgeInsets.fromLTRB(40, 40, 40, 0),
+          child: Column(
+            children: [
+              TextField(
+                controller: _serviceNameController,
+                style: GoogleFonts.montserrat(
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+                decoration: InputDecoration(
+                  hintText: 'Service Name',
+                ),
               ),
-            ),
-            TextField(
-              controller: _serviceLocationsController,
-              decoration: InputDecoration(
-                hintText: 'Locations',
+              SizedBox(height: 10),
+              TextField(
+                controller: _serviceDescriptionController,
+                style: GoogleFonts.montserrat(
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+                keyboardType: TextInputType.multiline,
+                minLines: 3,
+                maxLines: null,
+                decoration: InputDecoration(
+                  hintText: 'Service Description',
+                ),
               ),
-            ),
-            TextField(
-              controller: _serviceRatingController,
-              decoration: InputDecoration(
-                hintText: 'Rating',
+              SizedBox(height: 10),
+              TextField(
+                controller: _serviceLocationsController,
+                style: GoogleFonts.montserrat(
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+                decoration: InputDecoration(
+                  hintText: 'Locations',
+                ),
               ),
-            ),
-            TextButton(
-                onPressed: () {
-                  addService(
-                      context,
-                      _serviceNameController.text,
-                      _serviceDescriptionController.text,
-                      _serviceLocationsController.text,
-                      _serviceRatingController.text);
-                },
-                child: Text('Add Service'))
-          ],
+              SizedBox(height: 10),
+              TextField(
+                controller: _serviceRatingController,
+                style: GoogleFonts.montserrat(
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+                decoration: InputDecoration(
+                  hintText: 'Rating',
+                ),
+              ),
+              SizedBox(height: 30),
+              TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
+                  onPressed: () {
+                    addService(
+                        context,
+                        _serviceNameController.text,
+                        _serviceDescriptionController.text,
+                        _serviceLocationsController.text,
+                        _serviceRatingController.text);
+                  },
+                  child: Text(
+                    'Add Service',
+                    style: GoogleFonts.montserrat(
+                      textStyle: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ))
+            ],
+          ),
         ));
   }
 }

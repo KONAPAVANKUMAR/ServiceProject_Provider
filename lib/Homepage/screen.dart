@@ -42,6 +42,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         appBar: AppBar(
             automaticallyImplyLeading: false,
+            centerTitle: true,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -65,38 +66,45 @@ class _HomePageState extends State<HomePage> {
             )),
         body: WillPopScope(
             onWillPop: () async => false,
-            child: Center(
-              child: isServicesLoading
-                  ? Column()
-                  : Column(
-                      children: List.generate(services.length, (index) {
-                      return Card(
-                        child: ListTile(
-                          title: Text(
-                            services[index]['name'],
-                            style: GoogleFonts.montserrat(
-                              color: Colors.blue,
-                              fontSize: 20,
-                            ),
-                          ),
-                          subtitle: Text(
-                            services[index]['feasiblelocations'],
-                            style: GoogleFonts.montserrat(
-                              fontSize: 15,
-                            ),
-                          ),
-                          trailing: Icon(Icons.arrow_forward_ios),
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ServiceDetailPage(
-                                        service: services[index])));
-                          },
+            child: Container(
+                padding: EdgeInsets.all(20),
+                child: Center(
+                  child: isServicesLoading
+                      ? Column()
+                      : Container(
+                          child: new ListView.builder(
+                              itemCount: services.length,
+                              itemBuilder: (context, index) {
+                                return Card(
+                                  child: ListTile(
+                                    title: Text(
+                                      services[index]['name'],
+                                      style: GoogleFonts.montserrat(
+                                        color: Colors.blue,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                    subtitle: Text(
+                                      services[index]['feasiblelocations'],
+                                      style: GoogleFonts.montserrat(
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                    trailing: Icon(Icons.arrow_forward_ios),
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ServiceDetailPage(
+                                                      service:
+                                                          services[index])));
+                                    },
+                                  ),
+                                );
+                              }),
                         ),
-                      );
-                    })),
-            )),
+                ))),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(context,

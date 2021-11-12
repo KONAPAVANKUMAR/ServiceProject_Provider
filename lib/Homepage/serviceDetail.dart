@@ -49,85 +49,88 @@ class _ServiceDetailPageState extends State<ServiceDetailPage> {
           ],
         )),
         body: Center(
-            child: Column(
-          children: [
-            ListTile(
-              title: Text(
-                'Service Name',
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    fontSize: 20,
-                    color: Colors.blue,
+            child: Container(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            children: [
+              ListTile(
+                title: Text(
+                  'Service Name',
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+                subtitle: Text(
+                  widget.service['name'],
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ),
-              subtitle: Text(
-                widget.service['name'],
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    fontSize: 20,
+              ListTile(
+                title: Text(
+                  'About',
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+                subtitle: Text(
+                  widget.service['about'],
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ),
-            ),
-            ListTile(
-              title: Text(
-                'About',
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    fontSize: 20,
-                    color: Colors.blue,
+              ListTile(
+                title: Text(
+                  'Locations',
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+                subtitle: Text(
+                  widget.service['feasiblelocations'],
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ),
-              subtitle: Text(
-                widget.service['about'],
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    fontSize: 20,
+              ListTile(
+                title: Text(
+                  'Rating',
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+                subtitle: Text(
+                  widget.service['rating'] + '/5',
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ),
-            ),
-            ListTile(
-              title: Text(
-                'Locations',
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    fontSize: 20,
-                    color: Colors.blue,
-                  ),
-                ),
-              ),
-              subtitle: Text(
-                widget.service['feasiblelocations'],
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-            ),
-            ListTile(
-              title: Text(
-                'Rating',
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    fontSize: 20,
-                    color: Colors.blue,
-                  ),
-                ),
-              ),
-              subtitle: Text(
-                widget.service['rating'] + '/5',
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         )));
   }
 }

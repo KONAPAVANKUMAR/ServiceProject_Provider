@@ -25,6 +25,7 @@ class _SignupPageState extends State<SignupPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: Text(
             widget.title,
             style: GoogleFonts.montserrat(
@@ -35,66 +36,84 @@ class _SignupPageState extends State<SignupPage> {
           ),
         ),
         body: Center(
-          child: Column(
-            children: [
-              TextField(
-                controller: _usernameController,
-                decoration: InputDecoration(
-                  hintText: 'Username',
-                ),
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    fontSize: 20,
+          child: Container(
+            padding: EdgeInsets.fromLTRB(40, 0, 40, 60),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextField(
+                  controller: _emailController,
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    hintText: 'Email',
+                  ),
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                    ),
                   ),
                 ),
-              ),
-              TextField(
-                obscureText: true,
-                controller: _passwordController,
-                decoration: InputDecoration(
-                  hintText: 'Password',
+                SizedBox(
+                  height: 10,
                 ),
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    fontSize: 20,
+                TextField(
+                  controller: _usernameController,
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    hintText: 'Username',
+                  ),
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                    ),
                   ),
                 ),
-              ),
-              TextField(
-                controller: _emailController,
-                decoration: InputDecoration(
-                  hintText: 'Email',
+                SizedBox(
+                  height: 10,
                 ),
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    fontSize: 20,
+                TextField(
+                  obscureText: true,
+                  controller: _passwordController,
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    hintText: 'Password',
+                  ),
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                    ),
                   ),
                 ),
-              ),
-              TextButton(
-                child: Text('Sign Up',
-                    style: GoogleFonts.montserrat(
-                      textStyle: TextStyle(
-                        fontSize: 20,
-                      ),
-                    )),
-                onPressed: () {
-                  if (_usernameController.text.isEmpty ||
-                      _passwordController.text.isEmpty ||
-                      _emailController.text.isEmpty) {
-                    showAlertDialog(
-                        context, 'Error', 'Please fill all the fields');
-                  } else {
-                    createServiceProvider(
-                      context,
-                      _usernameController.text,
-                      _passwordController.text,
-                      _emailController.text,
-                    );
-                  }
-                },
-              )
-            ],
+                SizedBox(
+                  height: 30,
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(backgroundColor: Colors.blue),
+                  child: Text('Sign Up',
+                      style: GoogleFonts.montserrat(
+                        textStyle: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
+                      )),
+                  onPressed: () {
+                    if (_usernameController.text.isEmpty ||
+                        _passwordController.text.isEmpty ||
+                        _emailController.text.isEmpty) {
+                      showAlertDialog(
+                          context, 'Error', 'Please fill all the fields');
+                    } else {
+                      createServiceProvider(
+                        context,
+                        _usernameController.text,
+                        _passwordController.text,
+                        _emailController.text,
+                      );
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
         ));
   }
