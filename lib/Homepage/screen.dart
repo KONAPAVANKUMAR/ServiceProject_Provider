@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:serviceapp/Homepage/apiFunctions.dart';
+import 'package:serviceapp/OrdersPage/screen.dart';
 import 'package:serviceapp/global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -55,13 +56,28 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                IconButton(
-                    onPressed: () {
-                      logout(context);
-                    },
-                    icon: Icon(
-                      Icons.logout,
-                    ))
+                Row(
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          // navigate to orders page
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => OrdersPage()));
+                        },
+                        icon: Icon(
+                          Icons.notifications_active,
+                        )),
+                    IconButton(
+                        onPressed: () {
+                          logout(context);
+                        },
+                        icon: Icon(
+                          Icons.logout,
+                        ))
+                  ],
+                )
               ],
             )),
         body: WillPopScope(
